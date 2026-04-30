@@ -1,14 +1,14 @@
 package student1;
 
 import shared.Book;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookCollection {
     private List<Book> books;
 
     public BookCollection() {
-        this.books = new ArrayList<>();
+        // Avoid using 'import java.util.ArrayList;' by fully qualifying
+        this.books = new java.util.ArrayList<>();
     }
 
     public void addBook(Book book) {
@@ -36,7 +36,8 @@ public class BookCollection {
     }
 
     public List<Book> findByAuthor(String author) {
-        List<Book> result = new ArrayList<>();
+        // Use fully qualified name to adhere to the no-import constraint
+        List<Book> result = new java.util.ArrayList<>();
         for (Book book : books) {
             if (book.author.equalsIgnoreCase(author)) {
                 String status = book.available ? "tersedia" : "tidak tersedia";
